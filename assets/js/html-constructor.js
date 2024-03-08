@@ -12,7 +12,7 @@ divKeyboard.append(divTextarea);
 
 const textarea = document.createElement('textarea');
 textarea.setAttribute('name', 'text');
-textarea.setAttribute('cols', 159);
+textarea.setAttribute('cols', 106);
 textarea.setAttribute('rows', 10);
 divTextarea.append(textarea);
 
@@ -24,11 +24,10 @@ for (let key in btnsArr) {
     const divRow = document.createElement('div');
     divRow.setAttribute('class', `row ${key}`);
     divButtons.append(divRow);
-    createRow(divRow, btnsArr[key]);
+    createRow(divRow, btnsArr[key], 'en');
 }
 
 function createRow(div, obj, lang='ru') {
-    console.log('object', obj[lang]);
     const row = obj[lang];
 
     row.forEach((item) => {
