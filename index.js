@@ -1,2 +1,2 @@
-import './assets/js/html-constructor.js';
-import './assets/js/logic.js';
+import './components/js/html-constructor.js';
+import './components/js/logic.js';
