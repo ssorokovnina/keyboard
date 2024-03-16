@@ -1,6 +1,9 @@
 import btnsObj from './buttons.js';
 import { btnsGrey } from './buttons.js';
 import { btnsYellow } from './buttons.js';
+import state from './state.js';
+import { escFunc, backspaceFunc, delFunc, capsFunc, shiftFunc, 
+    downFunc, upFunc, leftFunc, rightFunc, insertText } from './logic.js';
 
 const container = document.getElementById('container');
 
@@ -12,24 +15,121 @@ const divTextarea = document.createElement('div');
 divTextarea.setAttribute('class', 'keyboard__textarea');
 divKeyboard.append(divTextarea);
 
-const textarea = document.createElement('textarea');
-textarea.setAttribute('name', 'text');
-textarea.setAttribute('cols', 106);
-textarea.setAttribute('rows', 10);
-divTextarea.append(textarea);
+const textareaTag = document.createElement('textarea');
+textareaTag.setAttribute('name', 'text');
+textareaTag.setAttribute('cols', 106);
+textareaTag.setAttribute('rows', 10);
+divTextarea.append(textareaTag);
 
-const divButtons = document.createElement('div');
-divButtons.setAttribute('class', 'keyboard__buttons rows');
-divKeyboard.append(divButtons);
+function createKeyboard(lang) {
+    const divButtons = document.createElement('div');
+    divButtons.setAttribute('class', 'keyboard__buttons rows');
+    divKeyboard.append(divButtons);
 
-for (let key in btnsObj) {
-    const divRow = document.createElement('div');
-    divRow.setAttribute('class', `row ${key}`);
-    divButtons.append(divRow);
-    createRow(divRow, btnsObj[key]);
+
+    for (let key in btnsObj) {
+        const divRow = document.createElement('div');
+        divRow.setAttribute('class', `row ${key}`);
+        divButtons.append(divRow);
+        createRow(divRow, btnsObj[key], lang);
+    }
+
+    const lettersArr = document.querySelectorAll('.button');
+    lettersArr.forEach( (letter) => {
+        letter.addEventListener('click', listenerFunc);
+    })
 }
 
-function createRow(div, obj, lang='ru') {
+
+createKeyboard(state['lang']);
+
+function listenerFunc(evt) {
+    textareaTag.focus();
+
+    if (evt.currentTarget.classList.contains('button__esc')) {
+        escFunc();
+    }
+    if (evt.currentTarget.classList.contains('button__backspace')) {
+        backspaceFunc();
+    }
+    if (evt.currentTarget.classList.contains('button__tab')) {
+        insertText('\t');
+    }
+    if (evt.currentTarget.classList.contains('button__del')) {
+        delFunc();
+    }
+    if (evt.currentTarget.classList.contains('button__caps')) {
+        capsFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__enter')) {
+        insertText('\n');
+    }
+    if (evt.currentTarget.classList.contains('button__shift')) {
+        console.log(evt.currentTarget);
+        shiftFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__arrow-up')) {
+        upFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__arrow-down')) {
+        downFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__arrow-left')) {
+        leftFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__arrow-right')) {
+        rightFunc(evt.currentTarget);
+    }
+    if (evt.currentTarget.classList.contains('button__space')) {
+        insertText(' ');
+    }
+    if (evt.currentTarget.classList.contains('button__alt')) {
+        if (state['isShift']) {
+            if (state['lang'] === 'ru') {
+                delKeyboard();
+                createKeyboard('en');
+                state['lang'] = 'en';
+
+                const shift = document.querySelector('.button__shift');
+                shift.classList.add('shift-on');
+                return;
+            }
+            delKeyboard();
+            createKeyboard('ru');
+            state['lang'] = 'ru';
+
+            const shift = document.querySelector('.button__shift');
+            shift.classList.add('shift-on');
+        }
+    }
+    if (evt.currentTarget.classList.contains('button__two-sym')) {
+        if (state['isShift']) {
+            insertText(evt.currentTarget.children[0].innerText);
+            return;
+        }
+        insertText(evt.currentTarget.children[1].innerText);
+    }
+    if (evt.currentTarget.firstElementChild?.classList.contains('button__letter')) {
+        if ((state['isCaps'] || state['isShift']) && !(state['isCaps'] && state['isShift'])) {
+            insertText(evt.currentTarget.firstElementChild.innerText.toUpperCase());
+            return;
+        }
+        insertText(evt.currentTarget.firstElementChild.innerText.toLowerCase());
+    }
+
+}
+
+function delKeyboard() {
+    const lettersArr = document.querySelectorAll('.button');
+    
+    lettersArr.forEach( (letter) => {
+        letter.removeEventListener('click', listenerFunc);
+    })
+    const keyboard = document.querySelector('.keyboard__buttons');
+    keyboard.remove();
+}
+
+function createRow(div, obj, lang) {
     const row = obj[lang];
 
     row.forEach((item) => {

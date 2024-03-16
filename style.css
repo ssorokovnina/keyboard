@@ -55,14 +55,6 @@ textarea {
     line-height: 25px;
 }
 
-/* .button_lh1 {
-    line-height: 20px;
-}
-
-.button_lh2 {
-    line-height: 45px;
-} */
-
 .button_rgb-yellow {
     background-color: #f4b81f;
 }
@@ -105,4 +97,9 @@ textarea {
 
 .button__space {
     width: 503px;
+}
+
+.caps-on, .shift-on {
+    background-color: #858585;
+    opacity: 0.7;
 }
