@@ -40,6 +40,37 @@ function createKeyboard(lang) {
     })
 }
 
+textareaTag.addEventListener('keydown', keydownFunc);
+textareaTag.addEventListener('keyup', keyupFunc);
+
+function keydownFunc(evt) {
+    for (let key in btnsObj) {
+        const row = btnsObj[key][state['lang']];
+        
+        row.forEach((item) => {
+            if (item.code === evt.code) {
+                const targetBtn = item.button;
+
+                targetBtn.classList.add('click');
+            }
+        })
+    }
+}
+
+
+function keyupFunc(evt) {
+    for (let key in btnsObj) {
+        const row = btnsObj[key][state['lang']];
+        
+        row.forEach((item) => {
+            if (item.code === evt.code) {
+                const targetBtn = item.button;
+
+                targetBtn.classList.remove('click');
+            }
+        })
+    }
+}
 
 createKeyboard(state['lang']);
 
@@ -161,6 +192,8 @@ function createButton(div, obj) {
         btnTwoSym.append(divMain);
         divMain.innerText = content;
 
+        obj['button'] = btnTwoSym;
+
         return;
     }
 
@@ -192,6 +225,7 @@ function createButton(div, obj) {
                 btn.classList.add(`button__${content}`);
         }
         btn.innerText = content;
+        obj['button'] = btn;
         
         if (isYellow(content)) {
             btn.classList.add('button_rgb-yellow');
@@ -207,6 +241,10 @@ function createButton(div, obj) {
     divBtn.setAttribute('class', 'button__letter');
     btn.append(divBtn);
     divBtn.innerText = content;
+
+    obj['button'] = btn;
+
+    return;
 }
 
 function isNum(num) {
