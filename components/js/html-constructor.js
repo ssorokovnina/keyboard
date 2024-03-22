@@ -44,14 +44,50 @@ textareaTag.addEventListener('keydown', keydownFunc);
 textareaTag.addEventListener('keyup', keyupFunc);
 
 function keydownFunc(evt) {
+    // console.log('code', evt.code);
     for (let key in btnsObj) {
         const row = btnsObj[key][state['lang']];
         
         row.forEach((item) => {
             if (item.code === evt.code) {
                 const targetBtn = item.button;
-
                 targetBtn.classList.add('click');
+                // console.log('code', evt.code);
+                // console.log('item', item.code);
+
+                if (evt.code === 'CapsLock') {
+                    state['isCaps'] = !state['isCaps'];
+                }
+                if (evt.key === 'Shift') {
+                    state['isShift'] = !state['isShift'];
+                }
+
+                if (evt.key === 'Alt' && evt.shiftKey) {
+                    
+                    if (state['lang'] === 'ru') {
+                        delKeyboard();
+                        createKeyboard('en');
+                        state['lang'] = 'en';
+        
+                        const shift = document.querySelector('.button__shift');
+                        const alt = document.querySelector('.button__alt');
+                        shift.classList.add('click');
+                        alt.classList.add('click');
+                        return;
+                    }
+                    delKeyboard();
+                    createKeyboard('ru');
+                    state['lang'] = 'ru';
+        
+                    const shift = document.querySelector('.button__shift');
+                    const alt = document.querySelector('.button__alt');
+                    shift.classList.add('click');
+                    alt.classList.add('click');
+                }
+
+                if (evt.code === 'Tab') {
+                    setTimeout(() => targetBtn.classList.remove('click'), 200);
+                }
             }
         })
     }
@@ -64,8 +100,14 @@ function keyupFunc(evt) {
         
         row.forEach((item) => {
             if (item.code === evt.code) {
-                const targetBtn = item.button;
+                if (evt.code === 'CapsLock' && state['isCaps']) {
+                    return;
+                }
+                if (evt.key === 'Shift') {
+                    state['isShift'] = false;
+                }
 
+                const targetBtn = item.button;
                 targetBtn.classList.remove('click');
             }
         })
@@ -96,7 +138,6 @@ function listenerFunc(evt) {
         insertText('\n');
     }
     if (evt.currentTarget.classList.contains('button__shift')) {
-        console.log(evt.currentTarget);
         shiftFunc(evt.currentTarget);
     }
     if (evt.currentTarget.classList.contains('button__arrow-up')) {
