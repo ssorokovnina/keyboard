@@ -1,588 +1,503 @@
 const btnsObj = {
-    row1: {
-        ru: [
-            {
-                content: 'esc',
-                code: 'Escape',
-            },
-            {
-                content: 'ё',
-                code: 'Backquote',
-            },
-            {
-                content: '1',
-                sub_content: '!',
-                code: 'Digit1',
-            },
-            {
-                content: '2',
-                sub_content: '"',
-                code: 'Digit2',
-            },
-            {
-                content: '3',
-                sub_content: '№',
-                code: 'Digit3',
-            },
-            {
-                content: '4',
-                sub_content: ';',
-                code: 'Digit4',
-            },
-            {
-                content: '5',
-                sub_content: '%',
-                code: 'Digit5',
-            },
-            {
-                content: '6',
-                sub_content: ':',
-                code: 'Digit6',
-            },
-            {
-                content: '7',
-                sub_content: '?',
-                code: 'Digit7',
-            },
-            {
-                content: '8',
-                sub_content: '*',
-                code: 'Digit8',
-            },
-            {
-                content: '9',
-                sub_content: '(',
-                code: 'Digit9',
-            },
-            {
-                content: '0',
-                sub_content: ')',
-                code: 'Digit0',
-            },
-            {
-                content: '-',
-                sub_content: '_',
-                code: 'Minus',
-            },
-            {
-                content: '=',
-                sub_content: '+',
-                code: 'Equal',
-            },
-            {
-                content: 'backspace',
-                code: 'Backspace',
-            }
-        ],   
-        en: [
-            {
-                content: 'esc',
-                code: 'Escape',
-            },
-            {
-                content: '`',
-                sub_content: '~',
-                code: 'Backquote',
-            },
-            {
-                content: '1',
-                sub_content: '!',
-                code: 'Digit1',
-            },
-            {
-                content: '2',
-                sub_content: '@',
-                code: 'Digit2',
-            },
-            {
-                content: '3',
-                sub_content: '#',
-                code: 'Digit3',
-            },
-            {
-                content: '4',
-                sub_content: '$',
-                code: 'Digit4',
-            },
-            {
-                content: '5',
-                sub_content: '%',
-                code: 'Digit5',
-            },
-            {
-                content: '6',
-                sub_content: '^',
-                code: 'Digit6',
-            },
-            {
-                content: '7',
-                sub_content: '&',
-                code: 'Digit7',
-            },
-            {
-                content: '8',
-                sub_content: '*',
-                code: 'Digit8',
-            },
-            {
-                content: '9',
-                sub_content: '(',
-                code: 'Digit9',
-            },
-            {
-                content: '0',
-                sub_content: ')',
-                code: 'Digit0',
-            },
-            {
-                content: '-',
-                sub_content: '_',
-                code: 'Minus',
-            },
-            {
-                content: '=',
-                sub_content: '+',
-                code: 'Equal',
-            },
-            {
-                content: 'backspace',
-                code: 'Backspace',
-            }
-        ],
-    },
-    row2: {
-        ru: [
-            {
-                content: 'tab',
-                code: 'Tab',
-            },
-            {
-                content: 'й',
-                code: 'KeyQ',
-            },
-            {
-                content: 'ц',
-                code: 'KeyW',
-            },
-            {
-                content: 'у',
-                code: 'KeyE',
-            },
-            {
-                content: 'к',
-                code: 'KeyR',
-            },
-            {
-                content: 'е',
-                code: 'KeyT',
-            },
-            {
-                content: 'н',
-                code: 'KeyY',
-            },
-            {
-                content: 'г',
-                code: 'KeyU',
-            },
-            {
-                content: 'ш',
-                code: 'KeyI',
-            },
-            {
-                content: 'щ',
-                code: 'KeyO',
-            },
-            {
-                content: 'з',
-                code: 'KeyP',
-            },
-            {
-                content: 'х',
-                code: 'BracketLeft',
-            },
-            {
-                content: 'ъ',
-                code: 'BracketRight',
-            },
-            {
-                content: '\\',
-                sub_content: '/',
-                code: 'Backslash',
-            },
-            {
-                content: 'del',
-                code: 'Delete',
-            },
-        ],
-        en: [
-            {
-                content: 'tab',
-                code: 'Tab',
-            },
-            {
-                content: 'q',
-                code: 'KeyQ',
-            },
-            {
-                content: 'w',
-                code: 'KeyW',
-            },
-            {
-                content: 'e',
-                code: 'KeyE',
-            },
-            {
-                content: 'r',
-                code: 'KeyR',
-            },
-            {
-                content: 't',
-                code: 'KeyT',
-            },
-            {
-                content: 'y',
-                code: 'KeyY',
-            },
-            {
-                content: 'u',
-                code: 'KeyU',
-            },
-            {
-                content: 'i',
-                code: 'KeyI',
-            },
-            {
-                content: 'o',
-                code: 'KeyO',
-            },
-            {
-                content: 'p',
-                code: 'KeyP',
-            },
-            {
-                content: '[',
-                sub_content: '{',
-                code: 'BracketLeft',
-            },
-            {
-                content: ']',
-                sub_content: '}',
-                code: 'BracketRight',
-            },
-            {
-                content: '\\',
-                sub_content: '|',
-                code: 'Backslash',
-            },
-            {
-                content: 'del',
-                code: 'Del',
-            },
-        ],
-    },
-    row3: {
-        ru: [
-            {
-                content: 'caps lock',
-                code: 'CapsLock',
-            },
-            {
-                content: 'ф',
-                code: 'KeyA',
-            },
-            {
-                content: 'ы',
-                code: 'KeyS',
-            },
-            {
-                content: 'в',
-                code: 'KeyD',
-            },
-            {
-                content: 'а',
-                code: 'KeyF',
-            },
-            {
-                content: 'п',
-                code: 'KeyG',
-            },
-            {
-                content: 'р',
-                code: 'KeyH',
-            },
-            {
-                content: 'о',
-                code: 'KeyJ',
-            },
-            {
-                content: 'л',
-                code: 'KeyK',
-            },
-            {
-                content: 'д',
-                code: 'KeyL',
-            },
-            {
-                content: 'ж',
-                code: 'Semicolon',
-            },
-            {
-                content: 'э',
-                code: 'Quote',
-            },
-            {
-                content: 'enter',
-                code: 'Enter',
-            },
-        ],
-        en: [
-            {
-                content: 'caps lock',
-                code: 'CapsLock',
-            },
-            {
-                content: 'a',
-                code: 'KeyA',
-            },
-            {
-                content: 's',
-                code: 'KeyS',
-            },
-            {
-                content: 'd',
-                code: 'KeyD',
-            },
-            {
-                content: 'f',
-                code: 'KeyF',
-            },
-            {
-                content: 'g',
-                code: 'KeyG',
-            },
-            {
-                content: 'h',
-                code: 'KeyH',
-            },
-            {
-                content: 'j',
-                code: 'KeyJ',
-            },
-            {
-                content: 'k',
-                code: 'KeyK',
-            },
-            {
-                content: 'l',
-                code: 'KeyL',
-            },
-            {
-                content: ';',
-                sub_content: ':',
-                code: 'Semicolon',
-            },
-            {
-                content: '\'',
-                sub_content: '"',
-                code: 'Quote',
-            },
-            {
-                content: 'enter',
-                code: 'Enter',
-            },
-        ],
-    },
-    row4: {
-        ru: [
-            {
-                content: 'shift',
-                code: 'ShiftLeft',
-            },
-            {
-                content: 'я',
-                code: 'KeyZ',
-            },
-            {
-                content: 'ч',
-                code: 'KeyX',
-            },
-            {
-                content: 'с',
-                code: 'KeyC',
-            },
-            {
-                content: 'м',
-                code: 'KeyV',
-            },
-            {
-                content: 'и',
-                code: 'KeyB',
-            },
-            {
-                content: 'т',
-                code: 'KeyN',
-            },
-            {
-                content: 'ь',
-                code: 'KeyM',
-            },
-            {
-                content: 'б',
-                code: 'Comma',
-            },
-            {
-                content: 'ю',
-                code: 'Period',
-            },
-            {
-                content: '.',
-                code: 'Slash',
-            },
-            {
-                content: 'up',
-                code: 'ArrowUp',
-            },
-            {
-                content: 'shift',
-                code: 'ShiftRight',
-            },
-        ],
-        en: [
-            {
-                content: 'shift',
-                code: 'ShiftLeft',
-            },
-            {
-                content: 'z',
-                code: 'KeyZ',
-            },
-            {
-                content: 'x',
-                code: 'KeyX',
-            },
-            {
-                content: 'c',
-                code: 'KeyC',
-            },
-            {
-                content: 'v',
-                code: 'KeyV',
-            },
-            {
-                content: 'b',
-                code: 'KeyB',
-            },
-            {
-                content: 'n',
-                code: 'KeyN',
-            },
-            {
-                content: 'm',
-                code: 'KeyM',
-            },
-            {
-                content: ',',
-                sub_content: '<',
-                code: 'Comma',
-            },
-            {
-                content: '.',
-                sub_content: '>',
-                code: 'Period',
-            },
-            {
-                content: '/',
-                sub_content: '?',
-                code: 'Slash',
-            },
-            {
-                content: 'up',
-                code: 'ArrowUp',
-            },
-            {
-                content: 'shift',
-                code: 'ShiftRight',
-            },
-        ],
-    },
-    row5: {
-        ru: [
-            {
-                content: 'ctrl',
-                code: 'ControlLeft',
-            },
-            {
-                content: 'win',
-                code: 'MetaLeft',
-            },
-            {
-                content: 'alt',
-                code: 'AltLeft',
-            },
-            {
-                content: '',
-                code: 'Space',
-            },
-            {
-                content: 'alt',
-                code: 'AltRight',
-            },
-            {
-                content: 'left',
-                code: 'ArrowLeft',
-            },
-            {
-                content: 'down',
-                code: 'ArrowDown',
-            },
-            {
-                content: 'right',
-                code: 'ArrowRight',
-            },
-            {
-                content: 'ctrl',
-                code: 'ControlRight',
-            },
-        ],
-        en: [
-            {
-                content: 'ctrl',
-                code: 'ControlLeft',
-            },
-            {
-                content: 'win',
-                code: 'MetaLeft',
-            },
-            {
-                content: 'alt',
-                code: 'AltLeft',
-            },
-            {
-                content: '',
-                code: 'Space',
-            },
-            {
-                content: 'alt',
-                code: 'AltRight',
-            },
-            {
-                content: 'left',
-                code: 'ArrowLeft',
-            },
-            {
-                content: 'down',
-                code: 'ArrowDown',
-            },
-            {
-                content: 'right',
-                code: 'ArrowRight',
-            },
-            {
-                content: 'ctrl',
-                code: 'ControlRight',
-            },
-        ],
-    },
+    row1: [
+        {
+            content_ru: 'esc',
+            content_en: 'esc',
+            code: 'Escape',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ё',
+            content_en: '`',
+            sub_en: '~',
+            code: 'Backquote',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: '1',
+            content_en: '1',
+            sub_ru: '!',
+            sub_en: '!',
+            code: 'Digit1',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '2',
+            content_en: '2',
+            sub_ru: '"',
+            sub_en: '@',
+            code: 'Digit2',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '3',
+            content_en: '3',
+            sub_ru: '№',
+            sub_en: '#',
+            code: 'Digit3',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '4',
+            content_en: '4',
+            sub_ru: ';',
+            sub_en: '$',
+            code: 'Digit4',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '5',
+            content_en: '5',
+            sub_ru: '%',
+            sub_en: '%',
+            code: 'Digit5',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '6',
+            content_en: '6',
+            sub_ru: ':',
+            sub_en: '^',
+            code: 'Digit6',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '7',
+            content_en: '7',
+            sub_ru: '?',
+            sub_en: '&',
+            code: 'Digit7',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '8',
+            content_en: '8',
+            sub_ru: '*',
+            sub_en: '*',
+            code: 'Digit8',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '9',
+            content_en: '9',
+            sub_ru: '(',
+            sub_en: '(',
+            code: 'Digit9',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '0',
+            content_en: '0',
+            sub_ru: ')',
+            sub_en: ')',
+            code: 'Digit0',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '-',
+            content_en: '-',
+            sub_ru: '_',
+            sub_en: '_',
+            code: 'Minus',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: '=',
+            content_en: '=',
+            sub_ru: '+',
+            sub_en: '+',
+            code: 'Equal',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'backspace',
+            content_en: 'backspace',
+            code: 'Backspace',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+    ],
+    row2: [
+        {
+            content_ru: 'tab',
+            content_en: 'tab',
+            code: 'Tab',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'й',
+            content_en: 'q',
+            code: 'KeyQ',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ц',
+            content_en: 'w',
+            code: 'KeyW',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'у',
+            content_en: 'e',
+            code: 'KeyE',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'к',
+            content_en: 'r',
+            code: 'KeyR',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'е',
+            content_en: 't',
+            code: 'KeyT',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'н',
+            content_en: 'y',
+            code: 'KeyY',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'г',
+            content_en: 'u',
+            code: 'KeyU',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ш',
+            content_en: 'i',
+            code: 'KeyI',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'щ',
+            content_en: 'o',
+            code: 'KeyO',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'з',
+            content_en: 'p',
+            code: 'KeyP',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'х',
+            content_en: '[',
+            sub_en: '{',
+            code: 'BracketLeft',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'ъ',
+            content_en: ']',
+            sub_en: '}',
+            code: 'BracketRight',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: '\\',
+            content_en: '\\',
+            sub_ru: '/',
+            sub_en: '|',
+            code: 'Backslash',
+            isSub_ru: true,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'del',
+            content_en: 'del',
+            code: 'Del',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+    ],
+    row3: [
+        {
+            content_ru: 'caps lock',
+            content_en: 'caps lock',
+            code: 'CapsLock',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ф',
+            content_en: 'a',
+            code: 'KeyA',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ы',
+            content_en: 's',
+            code: 'KeyS',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'в',
+            content_en: 'd',
+            code: 'KeyD',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'а',
+            content_en: 'f',
+            code: 'KeyF',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'п',
+            content_en: 'g',
+            code: 'KeyG',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'р',
+            content_en: 'h',
+            code: 'KeyH',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'о',
+            content_en: 'j',
+            code: 'KeyJ',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'л',
+            content_en: 'k',
+            code: 'KeyK',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'д',
+            content_en: 'l',
+            code: 'KeyL',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ж',
+            content_en: ';',
+            sub_en: ':',
+            code: 'Semicolon',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'э',
+            content_en: '\'',
+            sub_en: '"',
+            code: 'Quote',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'enter',
+            content_en: 'enter',
+            code: 'Enter',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+    ],
+    row4: [
+        {
+            content_ru: 'shift',
+            content_en: 'shift',
+            code: 'ShiftLeft',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'я',
+            content_en: 'z',
+            code: 'KeyZ',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ч',
+            content_en: 'x',
+            code: 'KeyX',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'с',
+            content_en: 'c',
+            code: 'KeyC',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'м',
+            content_en: 'v',
+            code: 'KeyV',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'и',
+            content_en: 'b',
+            code: 'KeyB',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'т',
+            content_en: 'n',
+            code: 'KeyN',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ь',
+            content_en: 'm',
+            code: 'KeyM',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'б',
+            content_en: ',',
+            sub_en: '<',
+            code: 'Comma',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'ю',
+            content_en: '.',
+            sub_en: '>',
+            code: 'Period',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: '.',
+            content_en: '/',
+            sub_en: '?',
+            code: 'Slash',
+            isSub_ru: false,
+            isSub_en: true,
+        },
+        {
+            content_ru: 'up',
+            content_en: 'up',
+            code: 'ArrowUp',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'shift',
+            content_en: 'shift',
+            code: 'ShiftRight',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+    ],
+    row5: [
+        {
+            content_ru: 'ctrl',
+            content_en: 'ctrl',
+            code: 'ControlLeft',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'win',
+            content_en: 'win',
+            code: 'MetaLeft',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'alt',
+            content_en: 'alt',
+            code: 'AltLeft',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: '',
+            content_en: '',
+            code: 'Space',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'alt',
+            content_en: 'alt',
+            code: 'AltRight',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'left',
+            content_en: 'left',
+            code: 'ArrowLeft',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'down',
+            content_en: 'down',
+            code: 'ArrowDown',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'right',
+            content_en: 'right',
+            code: 'ArrowRight',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+        {
+            content_ru: 'ctrl',
+            content_en: 'ctrl',
+            code: 'ControlRight',
+            isSub_ru: false,
+            isSub_en: false,
+        },
+    ]
 }
 
 const btnsGrey = ['backspace', 'tab', 'del', 'caps lock', 'shift', 'ctrl', 'alt', 'win', 'up', 'left', 'down', 'right'];
