@@ -104,12 +104,54 @@ class Button {
             return el.elem.button === inst.button ? el : null;
         })
 
-        console.log('here', obj);
-        if (obj.elem.button)
-        if (obj['isSub_en'] !== obj['isSub_ru']) {
-            if ()
+        const content = obj[`content_${state['lang']}`];
+        if (isYellow(content) || isGrey(content)) {
+            return;
         }
 
+        const btn = obj.elem.button;
+        if (obj['isSub_en'] !== obj['isSub_ru']) {
+            btn.removeChild(btn.firstElementChild);
+
+            if (state['lang'] === 'en') {
+                btn.classList.add('button__two-sym');
+
+                const divSub = document.createElement('div');
+                divSub.setAttribute('class', 'button__sub-sym');
+                btn.append(divSub);
+                divSub.innerText = obj[`sub_${state['lang']}`];
+
+                const divMain = document.createElement('div');
+                divMain.setAttribute('class', 'button__sym');
+                btn.append(divMain);
+                divMain.innerText = content;
+
+                return;
+            }
+            btn.classList.remove('button__two-sym');
+            while (btn.firstElementChild) {
+                btn.removeChild(btn.firstElementChild);
+            }
+
+            const divLetter = document.createElement('div');
+            divLetter.setAttribute('class', 'button__letter');
+            btn.append(divLetter);
+            divLetter.innerText = content;
+
+            return;
+        }
+        if (btn.classList.contains('button__two-sym')) {
+
+            const sub = obj[`sub_${state['lang']}`];
+            btn.querySelector('.button__sub-sym').innerText = sub;
+
+            if (btn.querySelector('.button__sym')) {
+                btn.querySelector('.button__sym').innerText = content;
+                return ;
+            }
+            return ;
+        }
+        btn.querySelector('.button__letter').innerText = content;
     }
 }
 
