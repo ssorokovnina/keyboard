@@ -93,18 +93,9 @@ class Button {
         this.button.removeEventListener('click', func);
     }
 
-    changeLang(inst) {
-        if (state['lang'] === 'ru') {
-            state['lang'] = 'en';
-        } else {
-            state['lang'] = 'ru';
-        }
-        
-        const obj = arr.find((el) => {
-            return el.elem.button === inst.button ? el : null;
-        })
-
+    changeLang(obj) {
         const content = obj[`content_${state['lang']}`];
+
         if (isYellow(content) || isGrey(content)) {
             return;
         }
@@ -143,15 +134,15 @@ class Button {
         if (btn.classList.contains('button__two-sym')) {
 
             const sub = obj[`sub_${state['lang']}`];
-            btn.querySelector('.button__sub-sym').innerText = sub;
+            btn.firstElementChild.innerText = sub;
 
-            if (btn.querySelector('.button__sym')) {
-                btn.querySelector('.button__sym').innerText = content;
+            if (btn.children[1]) {
+                btn.children[1].innerText = content;
                 return ;
             }
             return ;
         }
-        btn.querySelector('.button__letter').innerText = content;
+        btn.firstElementChild.innerText = content;
     }
 }
 
@@ -241,11 +232,15 @@ class Keyboard {
                     state['isShift'] = !state['isShift'];
                 }
                 if (evt.key === 'Alt' && evt.shiftKey) {
-                    for (let elemObj of arr) {
-                        elemObj.elem.changeLang(elemObj.elem);
-                        // check all button highlights
-    
+                    if (state['lang'] === 'ru') {
+                        state['lang'] = 'en';
+                    } else {
+                        state['lang'] = 'ru';
                     }
+
+                    arr.forEach((el) => {
+                        el.elem.changeLang(el);
+                    })
                 }
 
                 const targetBtn = elemObj.elem.button;
@@ -302,14 +297,15 @@ class Keyboard {
         }
         if (evt.currentTarget.classList.contains('button__alt')) {
             if (state['isShift']) {
-                for (let elemObj of arr) {
-                    elemObj.elem.changeLang(elemObj.elem);
-                    // check all button highlights
-
+                if (state['lang'] === 'ru') {
+                    state['lang'] = 'en';
+                } else {
+                    state['lang'] = 'ru';
                 }
 
-                const shift = document.querySelector('.button__shift');
-                shift.classList.add('shift-on');
+                arr.forEach((el) => {
+                    el.elem.changeLang(el);
+                })
             }
         }
         if (evt.currentTarget.classList.contains('button__two-sym')) {
