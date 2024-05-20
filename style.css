@@ -1,0 +1,109 @@
+@import './assets/css/clear.css';
+
+.keyboard {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding-top: 150px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.keyboard__textarea {
+    padding: 0 5px;
+}
+
+textarea {
+    font-size: 20px;
+}
+
+.keyboard__buttons {
+    width: 1200px;
+    height: 400px;
+
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    padding-top: 5px;
+
+    display: flex;
+    column-gap: 5px;
+}
+
+.button {
+    width: 70px;
+    height: 70px;
+
+    text-align: center;
+    
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 70px;
+    text-transform: uppercase;
+
+    background-color: #C0C0C0;
+
+    border-radius: 5px;
+}
+
+.button__two-sym {
+    line-height: 25px;
+}
+
+.button_rgb-yellow {
+    background-color: #f4b81f;
+}
+
+.button_rgb-grey {
+    background-color: #858585;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:active {
+    opacity: 0.7;
+}
+
+.button__backspace, .button__caps {
+    width: 140px;
+}
+
+.button__tab, .button__del, .button__ctrl {
+    width: 110px;
+}
+
+.button__arrow-right + .button__ctrl {
+    width: 118px;
+}
+
+.button__win {
+    width: 77px;
+}
+
+.button__shift {
+    width: 200px;
+}
+
+.button__enter {
+    width: 220px;
+}
+
+.button__space {
+    width: 503px;
+}
+
+.caps-on, .shift-on {
+    background-color: #858585;
+    opacity: 0.7;
+}
+
+.click {
+    opacity: 0.7;
+}
